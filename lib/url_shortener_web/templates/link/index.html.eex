@@ -1,0 +1,13 @@
+<h2>URLs created</h2>
+
+<section class="row">
+  <ul>
+  <%= for link <- @links do %>
+    <li><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %></li>
+  <%end %>
+  </ul>
+</section>
+
+<section class="row">
+  <%= link("Create New URL", to: Routes.link_path(@conn, :new)) %>
+</section>

@@ -1,0 +1,10 @@
+<section>
+  <h3>Create your URL</h3>
+</section>
+
+<%= form_for @changeset, Routes.link_path(@conn, :create), fn f -> %>
+  <label>
+    Name: <%= text_input f, :url %>
+  </label>
+  <%= submit "Make short URL" %>
+<% end %>
