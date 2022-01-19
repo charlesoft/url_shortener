@@ -26,4 +26,6 @@ defmodule UrlShortener.Link do
       add_error(changeset, :url, "invalid URL")
     end
   end
+
+  defp validate_url(changeset, _params), do: changeset
 end
