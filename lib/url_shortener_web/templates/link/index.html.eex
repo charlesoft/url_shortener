@@ -3,7 +3,7 @@
 <section class="row">
   <ul>
   <%= for link <- @links do %>
-    <li><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %></li>
+    <li><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %> - <%= created_at(link) %></li>
   <%end %>
   </ul>
 </section>
