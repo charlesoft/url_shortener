@@ -5,3 +5,7 @@
 <section class="row">
 <%=link("New URL", to: Routes.link_path(@conn, :new)) %>
 </section>
+
+<section class="row">
+<%=link("My recent URLs", to: Routes.link_path(@conn, :index)) %>
+</section>

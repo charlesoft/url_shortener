@@ -8,3 +8,5 @@
   </label>
   <%= submit "Make short URL" %>
 <% end %>
+
+<%=link("My recent URLs", to: Routes.link_path(@conn, :index)) %>
