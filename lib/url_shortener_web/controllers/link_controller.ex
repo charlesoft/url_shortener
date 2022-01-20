@@ -4,7 +4,7 @@ defmodule UrlShortenerWeb.LinkController do
   alias UrlShortener.{Link, Links, Repo}
 
   def index(conn, _params) do
-    links = Repo.all(Link)
+    links = Links.get_last_links()
 
     render(conn, "index.html", links: links)
   end

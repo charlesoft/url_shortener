@@ -1,8 +1,16 @@
 defmodule UrlShortener.Links do
-
   alias UrlShortener.{Link, Repo}
 
+  import Ecto.Query
+
   @str_size 6
+  @limit 5
+
+  def get_last_links do
+    query = from l in Link, order_by: [desc: l.inserted_at], limit: @limit
+
+    Repo.all(query)
+  end
 
   def create_link(attributes) do
     attributes = Map.put(attributes, "id", generate_random_string())
