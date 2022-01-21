@@ -16,9 +16,9 @@ defmodule UrlShortenerWeb.LinkView do
     time_formatted
   end
 
-  def get_errors(nil), do: nil
-
-  def get_errors(errors) do
+  def get_errors(errors) when is_list(errors) do
     Enum.map(errors, fn {_key, {message, _}} -> message end)
   end
+
+  def get_errors(_errors), do: nil
 end
