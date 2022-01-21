@@ -1,11 +1,22 @@
-<h2>URLs created</h2>
+<h3>URLs generated</h3>
 
 <section class="row">
-  <ul>
+  <table class="table-url">
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
   <%= for link <- @links do %>
-    <li><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %> - <%= created_at(link) %></li>
+    <tr>
+      <td><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %></td>
+      <td><%= created_at(link) %></td>
+    </tr>
   <%end %>
-  </ul>
+  </tbody>
+  </table>
 </section>
 
 <section class="row">
