@@ -1,0 +1,3 @@
+<h1>Link Not Found</h1>
+
+<%= link("My Recent URLs", to: Routes.link_path(@conn, :index))%>
