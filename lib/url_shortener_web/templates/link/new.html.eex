@@ -1,6 +1,12 @@
-<section>
+<section class="row">
   <h3>Create your URL</h3>
 </section>
+
+<%= if Enum.any?(@errors) do %>
+  <%= for error <- get_errors(@errors) do %>
+    <p class="alert alert-danger" role="alert"><%= error %></p>
+  <% end %>
+<% end %>
 
 <%= form_for @changeset, Routes.link_path(@conn, :create), fn f -> %>
   <label>
