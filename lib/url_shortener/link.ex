@@ -1,4 +1,7 @@
 defmodule UrlShortener.Link do
+  @moduledoc """
+  Module to handle Link Struct
+  """
   use Ecto.Schema
 
   import Ecto.Changeset
@@ -12,6 +15,7 @@ defmodule UrlShortener.Link do
 
   @fields [:id, :url]
 
+  @spec changeset(map(), map()) :: Ecto.Changeset.t()
   def changeset(model, params \\ %{}) do
     model
     |> cast(params, @fields)
@@ -20,7 +24,9 @@ defmodule UrlShortener.Link do
   end
 
   defp validate_url(changeset, %{"url" => url}) do
-    if URI.parse(url).scheme == "https" do
+    parsed_url = URI.parse(url)
+
+    if parsed_url.scheme == "https" or parsed_url.scheme == "http" do
       changeset
     else
       add_error(changeset, :url, "invalid URL")
