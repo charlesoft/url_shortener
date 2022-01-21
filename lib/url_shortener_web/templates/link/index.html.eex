@@ -1,24 +1,20 @@
-<h3>URLs generated</h3>
+<h3>Your recent Short URLs!</h3>
 
-<section class="row">
-  <table class="table-url">
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <%= for link <- @links do %>
-    <tr>
-      <td><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %></td>
-      <td><%= created_at(link) %></td>
-    </tr>
-  <%end %>
-  </tbody>
-  </table>
-</section>
+<table class="table-url">
+<thead>
+  <tr>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<%= for link <- @links do %>
+  <tr>
+    <td><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %></td>
+    <td><%= created_at(link) %></td>
+  </tr>
+<%end %>
+</tbody>
+</table>
 
-<section class="row">
-  <%= link("Create New URL", to: Routes.link_path(@conn, :new)) %>
-</section>
+<%= link("Create New URL", to: Routes.link_path(@conn, :new), class: "btn") %>
