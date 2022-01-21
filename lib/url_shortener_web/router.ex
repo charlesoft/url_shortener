@@ -19,6 +19,7 @@ defmodule UrlShortenerWeb.Router do
     resources("/links", LinkController, only: [:index, :new, :create, :show])
 
     get "/", LinkController, :new
+    get "/:id", LinkController, :show
   end
 
   # Other scopes may use custom stacks.

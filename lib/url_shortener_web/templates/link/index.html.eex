@@ -13,7 +13,7 @@
   <tr>
     <td><%= link(link_url(link), to: Routes.link_path(@conn, :show, link), target: "_blank") %></td>
     <td><%= created_at(link) %></td>
-    <td><a class="btn btn-copy" href="#" data-clipboard-text="<%=link.url %>">Copy</a></td>
+    <td><a class="btn btn-copy" href="#" data-clipboard-text="<%=link_url(link) %>">Copy</a></td>
   </tr>
 <%end %>
 </tbody>
