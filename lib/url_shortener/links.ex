@@ -28,7 +28,7 @@ defmodule UrlShortener.Links do
   defp generate_random_string do
     @str_size
     |> :crypto.strong_rand_bytes()
-    |> Base.encode64()
+    |> Base.encode64(padding: false)
     |> binary_part(0, @str_size)
   end
 end

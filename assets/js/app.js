@@ -16,4 +16,4 @@ import "../css/app.scss"
 //
 import "phoenix_html"
 
-new ClipboardJS('.btn');
+new ClipboardJS('.btn-copy');
